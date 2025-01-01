@@ -1,6 +1,9 @@
 import type { Preview } from "@storybook/react";
 import { themes } from "@storybook/theming";
 
+import "../src/theme/globals.css";
+import withFontProvider from "./withFontProvider";
+
 const preview: Preview = {
   parameters: {
     controls: {
@@ -20,7 +23,7 @@ const preview: Preview = {
       default: "Dark",
     },
   },
-  decorators: [],
+  decorators: [withFontProvider],
 };
 
 export default preview;

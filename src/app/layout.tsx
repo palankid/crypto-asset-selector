@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import "@/theme/globals.css";
+import { allFontVariables } from "@/theme/fonts";
 
 export const metadata: Metadata = {
   title: "Premia Code Challenge",
@@ -12,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={allFontVariables}>{children}</body>
     </html>
   );
 }
