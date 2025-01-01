@@ -24,6 +24,7 @@ export const ratesApi = createApi({
         params: { ids: assetIds.join(",") },
       }),
       serializeQueryArgs: () => ["getRates"],
+      forceRefetch: () => true,
       transformResponse: ({ message }: RatesResponse) => {
         return message;
       },

@@ -1,6 +1,10 @@
 # Crypto Asset Selector
 
+[![CI](https://github.com/palankid/crypto-asset-selector/actions/workflows/ci.yml/badge.svg)](https://github.com/palankid/crypto-asset-selector/actions/workflows/ci.yml)
+
 The project is designed to showcase a cryptocurrency dropdown selector. The primary goal of the app is to allow users to view and select between various cryptocurrency assets and display the corresponding market data.
+
+You can view the live production build [here](https://crypto-asset-selector.vercel.app).
 
 ---
 
@@ -19,6 +23,7 @@ The project is designed to showcase a cryptocurrency dropdown selector. The prim
 - Price is displayed in white text, while the 24-hour price change is shown:
   - **Green for positive change**.
   - **Red for negative change**.
+- Saved selection is persisted and reloaded when the application runs again.
 
 ### 3. **Technology Stack**
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { allFontVariables } from "@/theme/fonts";
 
 import "@/theme/globals.css";
-import { StoreProvider } from "../store";
+import { StoreProvider } from "@/store";
 import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export const metadata: Metadata = {
