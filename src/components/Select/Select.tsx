@@ -5,7 +5,7 @@ import ButtonComponent from "./ButtonComponent";
 import Option from "./Option";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { SelectItem } from "./types";
-import clsx from "clsx";
+import { twJoin } from "tailwind-merge";
 
 export interface SelectProps {
   items: SelectItem[];
@@ -39,17 +39,22 @@ const Select = ({
 
   return (
     <div ref={ref} className="relative w-full min-w-96 select-none">
-      <ButtonComponent selected={isOpened} onClick={handleButtonClick}>
+      <ButtonComponent
+        selected={isOpened}
+        selectedItem={selectedItem}
+        placeholder={placeholder}
+        onClick={handleButtonClick}
+      >
         {selectedItem ? selectedItem.label : placeholder}
       </ButtonComponent>
 
       <div
-        className={clsx([
+        className={twJoin(
           isOpened ? "block opacity-100" : "hidden opacity-0",
-          "relative -top-px transition-opacity duration-500",
-        ])}
+          "relative -top-1 transition-opacity duration-500",
+        )}
       >
-        <ul className="absolute flex w-full flex-col divide-y border border-secondary transition-opacity duration-500">
+        <ul className="absolute flex w-full flex-col divide-y border border-secondary bg-black transition-opacity duration-500">
           {items?.map((item) => (
             <Option item={item} key={item.value} onClick={handleItemClick}>
               {item.label}

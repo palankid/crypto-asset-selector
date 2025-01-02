@@ -1,6 +1,6 @@
-import clsx from "clsx";
 import { v4 as uuid } from "uuid";
 import { memo, useEffect, useState } from "react";
+import { twJoin } from "tailwind-merge";
 
 interface ParalellTransitionProps {
   children: React.ReactNode;
@@ -37,10 +37,10 @@ const ParallelTransition = memo(function ParallelTransition({
       {displayList.map(({ children, visible, key }) => (
         <div
           key={key}
-          className={clsx([
+          className={twJoin(
             visible ? "opacity-100 ease-out" : "opacity-0 ease-in",
-            "absolute transition-opacity duration-500",
-          ])}
+            "absolute w-full transition-opacity duration-500",
+          )}
         >
           {children}
         </div>

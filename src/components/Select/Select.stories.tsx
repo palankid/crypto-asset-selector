@@ -17,9 +17,27 @@ type Story = StoryObj<typeof meta>;
 export const Primary: Story = {
   args: {
     items: [
-      { value: "1", label: "BTC-OPTIONS" },
-      { value: "2", label: "ETH-OPTIONS" },
-      { value: "3", label: "ARB-OPTIONS" },
+      {
+        value: "BTC",
+        label: "BTC-OPTIONS",
+        description: "Option contracts",
+        lastPrice: 102300,
+        change: 2.3,
+      },
+      {
+        value: "ETH",
+        label: "ETH-OPTIONS",
+        description: "Option contracts",
+        lastPrice: 3264,
+        change: -1.53,
+      },
+      {
+        value: "ARB",
+        label: "ARB-OPTIONS",
+        description: "Option contracts",
+        lastPrice: 0.7193,
+        change: 0.26,
+      },
     ],
   },
 };
