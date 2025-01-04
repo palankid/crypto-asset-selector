@@ -1,18 +1,34 @@
-import { Select } from "@/components/Select";
+"use client";
+
+import { AssetSelect } from "@/components/AssetSelect";
+import { CryptoAssetId } from "@/constants/types";
+import useRatesSubscription from "@/hooks/useRatesSubscription";
 
 export default function Home() {
   const items = [
-    { value: "1", label: "One" },
-    { value: "2", label: "Two" },
-    { value: "3", label: "Three" },
-    { value: "4", label: "Four" },
+    {
+      symbol: CryptoAssetId.BTC,
+      label: "One",
+      description: "Bitcoin",
+      lastPrice: 1000,
+      change: 0.1,
+    },
+    {
+      symbol: CryptoAssetId.ETH,
+      label: "Two",
+      description: "Ethereum",
+      lastPrice: 2000,
+      change: 0.2,
+    },
   ];
+
+  useRatesSubscription();
 
   return (
     <div className="grid min-h-screen grid-rows-[20px_1fr_20px] items-center justify-items-center gap-16 bg-slate-200 p-8 pb-20 sm:p-20">
       <p className="font-sans">sdfsdf</p>
       <div className="w-72">
-        <Select items={items} />
+        <AssetSelect options={items} />
       </div>
       <p className="font-inter">sdfsdf 2</p>
       <p className="font-spacegrotesk">sdfsdf 3</p>

@@ -7,9 +7,11 @@ interface PriceDisplayProps {
   change?: number;
 }
 
-const PriceDisplay = ({ label, price, change }: PriceDisplayProps) => {
+const PriceDisplay = ({ price, change, label }: PriceDisplayProps) => {
   return (
-    <div className="flex flex-col items-end">
+    <div
+      className={twJoin("flex flex-col items-end", label ? "gap-1" : "gap-0.5")}
+    >
       {label && (
         <span className="font-inter text-2xs uppercase text-secondary">
           {label}

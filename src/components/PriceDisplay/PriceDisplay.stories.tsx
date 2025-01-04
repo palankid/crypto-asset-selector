@@ -33,3 +33,11 @@ export const WithChangeIndicator: Story = {
     </div>
   ),
 };
+
+export const AllFeatures: Story = {
+  args: {
+    label: "All features",
+    price: 101200.45,
+    change: 12.57,
+  },
+};

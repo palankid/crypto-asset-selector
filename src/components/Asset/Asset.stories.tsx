@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import Asset from "./Asset";
+import { CryptoAssetId } from "@/constants/types";
 
 const meta = {
   title: "components/Asset",
@@ -16,7 +17,7 @@ type Story = StoryObj<typeof meta>;
 
 export const WithDescription: Story = {
   args: {
-    symbol: "BTC",
+    symbol: CryptoAssetId.BTC,
     label: "BTC-Options",
     description: "Option Contracts",
   },
@@ -24,14 +25,14 @@ export const WithDescription: Story = {
 
 export const WithoutDescription: Story = {
   args: {
-    symbol: "ETH",
+    symbol: CryptoAssetId.ETH,
     label: "ETH-Options",
   },
 };
 
 export const WithExtraStyles: Story = {
   args: {
-    symbol: "ARB",
+    symbol: CryptoAssetId.ARB,
     label: "ARB-Options",
     iconClassName: "text-primary",
   },

@@ -1,14 +1,12 @@
 import { v4 as uuid } from "uuid";
-import { memo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { twJoin } from "tailwind-merge";
 
 interface ParalellTransitionProps {
   children: React.ReactNode;
 }
 
-const ParallelTransition = memo(function ParallelTransition({
-  children,
-}: ParalellTransitionProps) {
+const ParallelTransition = ({ children }: ParalellTransitionProps) => {
   const [displayList, setDisplayList] = useState([
     { children, visible: true, key: uuid() },
   ]);
@@ -33,20 +31,20 @@ const ParallelTransition = memo(function ParallelTransition({
   }, [children]);
 
   return (
-    <>
+    <div className="relative grid h-full w-full grid-cols-1 grid-rows-1">
       {displayList.map(({ children, visible, key }) => (
         <div
           key={key}
           className={twJoin(
             visible ? "opacity-100 ease-out" : "opacity-0 ease-in",
-            "absolute w-full transition-opacity duration-500",
+            "col-start-1 row-start-1 h-full w-full transition-opacity duration-500",
           )}
         >
           {children}
         </div>
       ))}
-    </>
+    </div>
   );
-});
+};
 
 export default ParallelTransition;
