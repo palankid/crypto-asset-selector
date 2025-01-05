@@ -28,6 +28,7 @@ const DropdownButton = ({
         "bg-[linear-gradient(35deg,_#3550fdb3_3%,_#00000000_12%),_linear-gradient(144deg,_#f236dfe6_2%,_#00000000_34%)]",
       )}
       role="button"
+      data-testid="dropdown-button"
       onClick={onClick}
     >
       <RowLayout
