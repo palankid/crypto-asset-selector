@@ -1,9 +1,10 @@
-import { CryptoAssetId } from "@/constants/types";
+import { CryptoAssetId } from "@/definitions/types";
 
 export interface AssetSelectItem {
-  symbol: CryptoAssetId;
+  assetId: CryptoAssetId;
   label: string;
   description: string;
   lastPrice: number;
   change: number;
+  precision: number;
 }

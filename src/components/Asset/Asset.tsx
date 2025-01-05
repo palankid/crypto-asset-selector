@@ -1,4 +1,4 @@
-import { CryptoAssetId } from "@/constants/types";
+import { CryptoAssetId } from "@/definitions/types";
 import * as Icons from "../Icons";
 import { twMerge } from "tailwind-merge";
 

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { allFontVariables } from "@/theme/fonts";
 
 import "@/theme/globals.css";
-import StoreProvider from "./StoreProvider";
+import { StoreProvider } from "../store";
 
 export const metadata: Metadata = {
   title: "Premia Code Challenge",

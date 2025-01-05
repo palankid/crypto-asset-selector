@@ -1,3 +1,4 @@
+import { ApiRoutes } from "@/definitions/api";
 import { NextRequest, NextResponse } from "next/server";
 
 export const fetchMarketRates = async (ids: string) => {
@@ -8,7 +9,7 @@ export const fetchMarketRates = async (ids: string) => {
     precision: "4",
     _: Date.now().toString(),
   });
-  const url = `${process.env.COINGECKO_BASE_URL}${process.env.COINGECKO_SIMPLE_PRICES}?${params}`;
+  const url = `${ApiRoutes.COINGECKO_BASE}${ApiRoutes.COINGECKO_RATES}?${params}`;
   const options: RequestInit = {
     method: "GET",
     cache: "no-store",

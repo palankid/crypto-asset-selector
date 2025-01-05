@@ -1,12 +1,12 @@
 import { configureStore } from "@reduxjs/toolkit";
-import { ratesApi } from "./rates.api";
 import { useDispatch, TypedUseSelectorHook, useSelector } from "react-redux";
 
-// import counterReducer from './features/counterSlice';
+import { ratesApi } from "@/features/rates/store/rates.api";
+import { ratesSliceReducer } from "@/features/rates/store/rates.slice";
 
 export const store = configureStore({
   reducer: {
-    // counter: counterReducer, // Add your slice reducers here
+    rates: ratesSliceReducer,
     [ratesApi.reducerPath]: ratesApi.reducer,
   },
   middleware: (getDefaultMiddleware) =>

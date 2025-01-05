@@ -34,7 +34,7 @@ const Option = ({ option, isSelected, onClick }: OptionProps) => {
         }
       >
         <Asset
-          symbol={option.symbol}
+          assetId={option.assetId}
           label={option.label}
           iconClassName="group-hover:text-primary transition-colors duration-500"
         />

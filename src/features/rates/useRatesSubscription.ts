@@ -3,12 +3,13 @@
 import { useEffect } from "react";
 
 import { subscribeRates, useAppDispatch } from "@/store";
+import { CryptoAssetIds } from "@/definitions";
 
 const useRatesSubscription = () => {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    const ratesSubscription = dispatch(subscribeRates(["bitcoin", "ethereum"]));
+    const ratesSubscription = dispatch(subscribeRates(CryptoAssetIds));
 
     return () => {
       ratesSubscription.unsubscribe();

@@ -34,18 +34,21 @@ const AssetSelect = ({
     setIsOpened(false);
   }
 
-  const handleButtonClick = () => {
+  const handleButtonClick = useCallback(() => {
     setIsOpened((prev) => (options?.length ? !prev : false));
-  };
+  }, [options?.length]);
 
-  const handleSelect = useCallback((item: AssetSelectItem) => {
-    setSelectedItem(item);
-    onSelect?.(item);
-    handleButtonClick();
-  }, []);
+  const handleSelect = useCallback(
+    (item: AssetSelectItem) => {
+      setSelectedItem(item);
+      onSelect?.(item);
+      handleButtonClick();
+    },
+    [handleButtonClick, onSelect],
+  );
 
   return (
-    <div ref={ref} className="relative w-full min-w-96 select-none">
+    <div ref={ref} className="relative w-[405px] select-none">
       <ButtonComponent
         selected={isOpened}
         selectedItem={selectedItem}

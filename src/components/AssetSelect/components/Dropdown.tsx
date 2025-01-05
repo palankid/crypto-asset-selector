@@ -45,8 +45,8 @@ const Dropdown = ({ options, selected, opened, onSelect }: DropdownProps) => {
             {options?.map((option) => (
               <Option
                 option={option}
-                isSelected={selected?.symbol === option.symbol}
-                key={option.symbol}
+                isSelected={selected?.assetId === option.assetId}
+                key={option.assetId}
                 onClick={onSelect}
               />
             ))}

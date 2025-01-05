@@ -3,7 +3,7 @@ import { twJoin, twMerge } from "tailwind-merge";
 import ArrowIcon from "@/components/Icons/common/ArrowIcon";
 import { Asset } from "@/components/Asset";
 import { PriceDisplay } from "@/components/PriceDisplay";
-import ParallelTransition from "./ParallelTransition";
+import CrossfadeTransition from "./CrossfadeTransition";
 import { AssetSelectItem } from "../types";
 import RowLayout from "./RowLayout";
 
@@ -23,7 +23,7 @@ const ButtonComponent = ({
   return (
     <button
       className={twJoin(
-        "group w-[405px] rounded p-px",
+        "group w-full rounded p-px",
         "bg-[linear-gradient(35deg,_#3550fdb3_3%,_#00000000_12%),_linear-gradient(144deg,_#f236dfe6_2%,_#00000000_34%)]",
       )}
       onClick={onClick}
@@ -44,20 +44,21 @@ const ButtonComponent = ({
         {!selectedItem && placeholder}
         {selectedItem && (
           <>
-            <ParallelTransition>
+            <CrossfadeTransition>
               <Asset
-                symbol={selectedItem.symbol}
+                assetId={selectedItem.assetId}
                 label={selectedItem.label}
                 description={selectedItem.description}
                 iconClassName="text-primary"
               />
-            </ParallelTransition>
-            <ParallelTransition>
+            </CrossfadeTransition>
+            <CrossfadeTransition>
               <PriceDisplay
                 price={selectedItem.lastPrice}
+                precision={selectedItem.precision}
                 label="Last Market Price"
               />
-            </ParallelTransition>
+            </CrossfadeTransition>
           </>
         )}
       </RowLayout>

@@ -17,21 +17,21 @@ type Story = StoryObj<typeof meta>;
 
 const options = [
   {
-    symbol: CryptoAssetId.BTC,
+    assetId: CryptoAssetId.BTC,
     label: "BTC-OPTIONS",
     description: "Option contracts",
     lastPrice: 102300,
     change: 2.3,
   },
   {
-    symbol: CryptoAssetId.ETH,
+    assetId: CryptoAssetId.ETH,
     label: "ETH-OPTIONS",
     description: "Option contracts",
     lastPrice: 3264,
     change: -1.53,
   },
   {
-    symbol: CryptoAssetId.ARB,
+    assetId: CryptoAssetId.ARB,
     label: "ARB-OPTIONS",
     description: "Option contracts",
     lastPrice: 0.7193,

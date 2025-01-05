@@ -5,9 +5,15 @@ interface PriceDisplayProps {
   price: number;
   label?: string;
   change?: number;
+  precision?: number;
 }
 
-const PriceDisplay = ({ price, change, label }: PriceDisplayProps) => {
+const PriceDisplay = ({
+  price,
+  change,
+  label,
+  precision = 2,
+}: PriceDisplayProps) => {
   return (
     <div
       className={twJoin("flex flex-col items-end", label ? "gap-1" : "gap-0.5")}
@@ -23,7 +29,7 @@ const PriceDisplay = ({ price, change, label }: PriceDisplayProps) => {
           label ? "font-aeonikpro" : "",
         )}
       >
-        {formatCurrency(price, { precision: 2 })}
+        {formatCurrency(price, { precision })}
       </span>
       {change && (
         <span

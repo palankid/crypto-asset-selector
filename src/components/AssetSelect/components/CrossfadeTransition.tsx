@@ -1,18 +1,19 @@
 import { v4 as uuid } from "uuid";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { twJoin } from "tailwind-merge";
 
-interface ParalellTransitionProps {
+interface CrossfadeTransitionProps {
   children: React.ReactNode;
 }
 
-const ParallelTransition = ({ children }: ParalellTransitionProps) => {
+const CrossfadeTransition = ({ children }: CrossfadeTransitionProps) => {
   const [displayList, setDisplayList] = useState([
     { children, visible: true, key: uuid() },
   ]);
+  const prevChildrenRef = useRef(children);
 
   useEffect(() => {
-    if (displayList[0].children === children) return;
+    if (prevChildrenRef.current === children) return;
 
     setDisplayList(([prev]) => {
       return [
@@ -26,6 +27,8 @@ const ParallelTransition = ({ children }: ParalellTransitionProps) => {
         return [{ ...first, visible: true }, ...rest];
       });
     }, 20);
+
+    prevChildrenRef.current = children;
 
     return () => clearTimeout(timer);
   }, [children]);
@@ -47,4 +50,4 @@ const ParallelTransition = ({ children }: ParalellTransitionProps) => {
   );
 };
 
-export default ParallelTransition;
+export default CrossfadeTransition;
