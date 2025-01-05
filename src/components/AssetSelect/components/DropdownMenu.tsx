@@ -38,6 +38,7 @@ const DropdownMenu = ({
         opened ? "opacity-100" : "opacity-0",
         "relative -top-1 transition-opacity duration-500",
       )}
+      data-testid="dropdown-menu"
       onTransitionEnd={handleTransitionEnd}
     >
       {shouldShow && (

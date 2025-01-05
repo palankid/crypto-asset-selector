@@ -1,15 +1,15 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
-import PriceDisplay from "./PriceDisplay";
+import PriceWidget from "./PriceWidget";
 
 const meta = {
-  title: "components/PriceDisplay",
-  component: PriceDisplay,
+  title: "components/PriceWidget",
+  component: PriceWidget,
   parameters: {
     layout: "centered",
   },
   tags: ["autodocs"],
-} satisfies Meta<typeof PriceDisplay>;
+} satisfies Meta<typeof PriceWidget>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
@@ -29,8 +29,8 @@ export const WithChangeIndicator: Story = {
   },
   render: (args) => (
     <div className="space-y-4">
-      <PriceDisplay {...args} />
-      <PriceDisplay price="1,234.56" change="3.67%" changeValue={3.67} />
+      <PriceWidget {...args} />
+      <PriceWidget price="1,234.56" change="3.67%" changeValue={3.67} />
     </div>
   ),
 };

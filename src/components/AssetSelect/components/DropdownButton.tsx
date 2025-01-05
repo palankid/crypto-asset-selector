@@ -3,7 +3,7 @@ import { twJoin, twMerge } from "tailwind-merge";
 
 import ArrowIcon from "@/components/Icons/common/ArrowIcon";
 import { Asset } from "@/components/Asset";
-import { PriceDisplay } from "@/components/PriceDisplay";
+import { PriceWidget } from "@/components/PriceWidget";
 import CrossfadeTransition from "./CrossfadeTransition";
 import { AssetSelectItem } from "../types";
 import RowLayout from "./RowLayout";
@@ -27,6 +27,7 @@ const DropdownButton = ({
         "group w-full rounded p-px",
         "bg-[linear-gradient(35deg,_#3550fdb3_3%,_#00000000_12%),_linear-gradient(144deg,_#f236dfe6_2%,_#00000000_34%)]",
       )}
+      role="button"
       onClick={onClick}
     >
       <RowLayout
@@ -54,7 +55,7 @@ const DropdownButton = ({
               />
             </CrossfadeTransition>
             <CrossfadeTransition>
-              <PriceDisplay
+              <PriceWidget
                 price={selectedItem.lastPrice}
                 label="Last Market Price"
               />

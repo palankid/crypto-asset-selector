@@ -1,7 +1,7 @@
 import { twJoin, twMerge } from "tailwind-merge";
-import { Asset } from "../../Asset";
-import { CheckmarkIcon } from "../../Icons";
-import { PriceDisplay } from "../../PriceDisplay";
+import { Asset } from "@/components/Asset";
+import { CheckmarkIcon } from "@/components/Icons";
+import { PriceWidget } from "@/components/PriceWidget";
 import RowLayout from "./RowLayout";
 import { AssetSelectItem } from "../types";
 
@@ -38,7 +38,7 @@ const Option = ({ option, isSelected, onClick }: OptionProps) => {
           label={option.label}
           iconClassName="group-hover:text-primary transition-colors duration-500"
         />
-        <PriceDisplay
+        <PriceWidget
           price={option.lastPrice}
           change={option.change}
           changeValue={option.changeValue}

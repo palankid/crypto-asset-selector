@@ -1,18 +1,18 @@
 import { twJoin } from "tailwind-merge";
 
-interface PriceDisplayProps {
+interface PriceWidgetProps {
   price: string;
   label?: string;
   change?: string;
   changeValue?: number;
 }
 
-const PriceDisplay = ({
+const PriceWidget = ({
   price,
   label,
   change,
   changeValue = 0,
-}: PriceDisplayProps) => {
+}: PriceWidgetProps) => {
   return (
     <div
       className={twJoin("flex flex-col items-end", label ? "gap-1" : "gap-0.5")}
@@ -44,4 +44,4 @@ const PriceDisplay = ({
   );
 };
 
-export default PriceDisplay;
+export default PriceWidget;
