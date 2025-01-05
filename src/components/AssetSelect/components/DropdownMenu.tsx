@@ -1,18 +1,23 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { twJoin } from "tailwind-merge";
 
 import { AssetSelectItem } from "../types";
 import Option from "./Option";
 import RowLayout from "./RowLayout";
 
-interface DropdownProps {
+interface DropdownMenuProps {
   options: AssetSelectItem[];
   selected: AssetSelectItem | null;
   opened: boolean;
   onSelect: (item: AssetSelectItem) => void;
 }
 
-const Dropdown = ({ options, selected, opened, onSelect }: DropdownProps) => {
+const DropdownMenu = ({
+  options,
+  selected,
+  opened,
+  onSelect,
+}: DropdownMenuProps) => {
   const [shouldShow, setShouldShow] = useState(opened);
 
   useEffect(() => {
@@ -57,4 +62,20 @@ const Dropdown = ({ options, selected, opened, onSelect }: DropdownProps) => {
   );
 };
 
-export default Dropdown;
+const areEqual = (
+  prevProps: DropdownMenuProps,
+  nextProps: DropdownMenuProps,
+) => {
+  return (
+    prevProps.options.every((item, index) => {
+      const otherItem = nextProps.options[index];
+      return (
+        item.assetId === otherItem.assetId &&
+        item.lastPrice === otherItem.lastPrice &&
+        item.change === otherItem.change
+      );
+    }) && prevProps.opened === nextProps.opened
+  );
+};
+
+export default React.memo(DropdownMenu, areEqual);

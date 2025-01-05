@@ -12,7 +12,7 @@ const ratesSlice = createSlice({
   name: "rates",
   initialState,
   reducers: {
-    changeAsset: (state, action: PayloadAction<CryptoAssetId>) => {
+    changeSelectedAssetId: (state, action: PayloadAction<CryptoAssetId>) => {
       state.selectedAsset = action.payload;
     },
   },
@@ -20,5 +20,5 @@ const ratesSlice = createSlice({
 
 const { reducer } = ratesSlice;
 
-export const { changeAsset } = ratesSlice.actions;
+export const { changeSelectedAssetId } = ratesSlice.actions;
 export { reducer as ratesSliceReducer };

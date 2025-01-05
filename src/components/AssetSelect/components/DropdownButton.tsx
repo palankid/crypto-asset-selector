@@ -1,3 +1,4 @@
+import React from "react";
 import { twJoin, twMerge } from "tailwind-merge";
 
 import ArrowIcon from "@/components/Icons/common/ArrowIcon";
@@ -7,19 +8,19 @@ import CrossfadeTransition from "./CrossfadeTransition";
 import { AssetSelectItem } from "../types";
 import RowLayout from "./RowLayout";
 
-export interface ButtonComponentProps {
+export interface DropdownButtonProps {
   selected: boolean;
   selectedItem?: AssetSelectItem | null;
   placeholder?: string;
   onClick: () => void;
 }
 
-const ButtonComponent = ({
+const DropdownButton = ({
   selected,
   selectedItem = null,
   placeholder,
   onClick,
-}: ButtonComponentProps) => {
+}: DropdownButtonProps) => {
   return (
     <button
       className={twJoin(
@@ -55,7 +56,6 @@ const ButtonComponent = ({
             <CrossfadeTransition>
               <PriceDisplay
                 price={selectedItem.lastPrice}
-                precision={selectedItem.precision}
                 label="Last Market Price"
               />
             </CrossfadeTransition>
@@ -66,4 +66,15 @@ const ButtonComponent = ({
   );
 };
 
-export default ButtonComponent;
+const areEqual = (
+  prevProps: DropdownButtonProps,
+  nextProps: DropdownButtonProps,
+) => {
+  return (
+    prevProps.selectedItem?.assetId === nextProps.selectedItem?.assetId &&
+    prevProps.selectedItem?.lastPrice === nextProps.selectedItem?.lastPrice &&
+    prevProps.selected === nextProps.selected
+  );
+};
+
+export default React.memo(DropdownButton, areEqual);

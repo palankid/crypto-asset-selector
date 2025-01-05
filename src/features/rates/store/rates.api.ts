@@ -42,5 +42,5 @@ export const subscribeRates = (assetIds: string[]) =>
 
 export const selectRatesApiData = createSelector(
   ratesApi.endpoints.getRates.select(["getRates"]),
-  (result) => result?.data || [],
+  (result) => result?.data || {},
 );

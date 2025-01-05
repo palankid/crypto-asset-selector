@@ -1,16 +1,17 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
-import ButtonComponent from "./components/ButtonComponent";
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import DropdownButton from "./components/DropdownButton";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import { AssetSelectItem } from "./types";
-import Dropdown from "./components/Dropdown";
+import DropdownList from "./components/DropdownMenu";
+import { CryptoAssetId } from "@/definitions/types";
 
 export interface AssetSelectProps {
   options: AssetSelectItem[];
-  selected?: AssetSelectItem | null;
+  selected?: CryptoAssetId | null;
   placeholder?: string;
-  onSelect?: (item: AssetSelectItem) => void;
+  onSelect?: (item: CryptoAssetId) => void;
 }
 
 const AssetSelect = ({
@@ -21,14 +22,18 @@ const AssetSelect = ({
 }: AssetSelectProps) => {
   const [isOpened, setIsOpened] = useState(false);
   const [selectedItem, setSelectedItem] = useState<AssetSelectItem | null>(
-    selected,
+    null,
   );
   const ref = useRef<HTMLDivElement>(null);
   useClickOutside(ref, closeAssetSelect);
 
   useEffect(() => {
-    setSelectedItem(selected);
-  }, [selected]);
+    if (!selected) return;
+
+    setSelectedItem(
+      options.find((option) => option.assetId === selected) ?? null,
+    );
+  }, [selected, options]);
 
   function closeAssetSelect() {
     setIsOpened(false);
@@ -41,22 +46,22 @@ const AssetSelect = ({
   const handleSelect = useCallback(
     (item: AssetSelectItem) => {
       setSelectedItem(item);
-      onSelect?.(item);
+      onSelect?.(item.assetId);
       handleButtonClick();
     },
     [handleButtonClick, onSelect],
   );
 
   return (
-    <div ref={ref} className="relative w-[405px] select-none">
-      <ButtonComponent
+    <div ref={ref} className="relative w-80 select-none xs:w-[405px]">
+      <DropdownButton
         selected={isOpened}
         selectedItem={selectedItem}
         placeholder={placeholder}
         onClick={handleButtonClick}
       />
 
-      <Dropdown
+      <DropdownList
         options={options}
         selected={selectedItem}
         opened={isOpened}

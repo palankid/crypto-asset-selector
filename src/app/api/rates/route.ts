@@ -1,12 +1,12 @@
 import { ApiRoutes } from "@/definitions/api";
 import { NextRequest, NextResponse } from "next/server";
 
-export const fetchMarketRates = async (ids: string) => {
+const fetchMarketRates = async (ids: string) => {
   const params = new URLSearchParams({
     ids,
     vs_currencies: "usd",
     include_24hr_change: "true",
-    precision: "4",
+    precision: "8",
     _: Date.now().toString(),
   });
   const url = `${ApiRoutes.COINGECKO_BASE}${ApiRoutes.COINGECKO_RATES}?${params}`;

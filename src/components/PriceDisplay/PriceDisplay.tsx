@@ -1,18 +1,17 @@
-import { formatCurrency, formatPercentage } from "@/utils/formatters";
 import { twJoin } from "tailwind-merge";
 
 interface PriceDisplayProps {
-  price: number;
+  price: string;
   label?: string;
-  change?: number;
-  precision?: number;
+  change?: string;
+  changeValue?: number;
 }
 
 const PriceDisplay = ({
   price,
-  change,
   label,
-  precision = 2,
+  change,
+  changeValue = 0,
 }: PriceDisplayProps) => {
   return (
     <div
@@ -29,13 +28,16 @@ const PriceDisplay = ({
           label ? "font-aeonikpro" : "",
         )}
       >
-        {formatCurrency(price, { precision })}
+        {price}
       </span>
       {change && (
         <span
-          className={twJoin("text-2xs", change < 0 ? "text-bid" : "text-ask")}
+          className={twJoin(
+            "text-2xs",
+            changeValue < 0 ? "text-bid" : "text-ask",
+          )}
         >
-          {formatPercentage(change, 2)}
+          {change}
         </span>
       )}
     </div>

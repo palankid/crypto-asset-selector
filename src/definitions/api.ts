@@ -6,7 +6,7 @@ export enum ApiRoutes {
 }
 
 export enum PollingIntervals {
-  RATES = 120_000,
+  RATES = 20_000,
 }
 
 export enum RequestMethods {

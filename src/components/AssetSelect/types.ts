@@ -4,7 +4,7 @@ export interface AssetSelectItem {
   assetId: CryptoAssetId;
   label: string;
   description: string;
-  lastPrice: number;
-  change: number;
-  precision: number;
+  lastPrice: string;
+  change: string;
+  changeValue: number;
 }

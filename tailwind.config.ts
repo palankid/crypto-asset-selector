@@ -39,6 +39,9 @@ export default {
         "8xl": ["6rem", "1"],
         "9xl": ["8rem", "1"],
       },
+      screens: {
+        xs: "480px",
+      },
       boxShadow: {
         custom: "0px 4px 20px 0px #00000099",
       },

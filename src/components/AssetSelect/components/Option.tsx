@@ -38,7 +38,11 @@ const Option = ({ option, isSelected, onClick }: OptionProps) => {
           label={option.label}
           iconClassName="group-hover:text-primary transition-colors duration-500"
         />
-        <PriceDisplay price={option.lastPrice} change={option.change} />
+        <PriceDisplay
+          price={option.lastPrice}
+          change={option.change}
+          changeValue={option.changeValue}
+        />
       </RowLayout>
     </li>
   );
