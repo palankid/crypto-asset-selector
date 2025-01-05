@@ -1,36 +1,61 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Test Application
 
-## Getting Started
+The project is designed to showcase a cryptocurrency dropdown selector. The primary goal of the app is to allow users to view and select between various cryptocurrency assets and display the corresponding market data.
 
-First, run the development server:
+---
+
+## Features
+
+### 1. **Dropdown Selector**
+
+- A custom-designed dropdown replicates the provided UI.
+- Dropdown displays three assets: **Bitcoin (BTC)**, **Ether (ETH)**, and **Arbitrum (ARB)**.
+- Upon selection of an asset, the dropdown updates the displayed asset and fetches relevant market data.
+
+### 2. **Market Data Integration**
+
+- Fetches real-time cryptocurrency data (price and 24-hour price change) using **CoinGecko's free API**.
+- Price is displayed in white text, while the 24-hour price change is shown:
+  - **Green for positive change**.
+  - **Red for negative change**.
+
+### 3. **Technology Stack**
+
+- **Next.js** (using the app router for modern file-based routing).
+- **TypeScript** for type safety and better developer experience.
+- **Tailwind CSS** for fast and efficient styling.
+- **Redux Toolkit** storing, fetching and caching tool
+
+---
+
+## Setup Instructions
+
+Clone the repository from GitHub:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/palankid/crypto-asset-selector.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to the project directory:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+cd crypto-asset-selector
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Install the dependencies:
 
-## Learn More
+```bash
+yarn install
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Storybook
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+There are two ways to run your storybook:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `yarn storybook` to run Storybook
 
-## Deploy on Vercel
+- `yarn storybook:build` to build Storybook
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Testing
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `yarn test` to run the tests in watch mode

@@ -3,6 +3,7 @@ import { allFontVariables } from "@/theme/fonts";
 
 import "@/theme/globals.css";
 import { StoreProvider } from "../store";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 
 export const metadata: Metadata = {
   title: "Premia Code Challenge",
@@ -17,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={allFontVariables}>
-        <StoreProvider>{children}</StoreProvider>
+        <ErrorBoundary>
+          <StoreProvider>{children}</StoreProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );

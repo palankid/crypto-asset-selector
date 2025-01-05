@@ -1,6 +1,6 @@
 export { ratesApi, subscribeRates } from "../features/rates/store/rates.api";
 
-export { store, useAppDispatch, useAppSelector } from "./store";
+export { store, setupStore, useAppDispatch, useAppSelector } from "./store";
 
 export type { AppDispatch, RootState } from "./store";
 
